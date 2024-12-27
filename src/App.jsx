@@ -4,9 +4,9 @@ import Header from "./components/Header"
 function App() {
 
   //state
-  const [auth, setAuth] = useState(false)
-
-  console.log(auth)
+  const [auth, setAuth] = useState([])
+  const [total, setTotal] = useState([0])
+  const [cart, setCart] = useState([])
 
   return (
     <>
