@@ -1,6 +1,12 @@
+import { useState } from "react"
 import Guitar from "./components/Guitar"
 import Header from "./components/Header"
 function App() {
+
+  //state
+  const [auth, setAuth] = useState(false)
+
+  console.log(auth)
 
   return (
     <>
