@@ -1,12 +1,21 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Guitar from "./components/Guitar"
 import Header from "./components/Header"
 function App() {
 
+  const [auth, setAuth] = useState(false)
+
+
+  useEffect(()=>{
+    console.log("componente listo")
+  }, [auth])
+
   //state
-  const [auth, setAuth] = useState([])
-  const [total, setTotal] = useState([0])
-  const [cart, setCart] = useState([])
+  
+setTimeout(() => {
+  setAuth(true)
+}, 3000);
+
 
   return (
     <>
