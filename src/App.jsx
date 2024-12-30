@@ -1,22 +1,12 @@
 import { useState, useEffect } from "react"
 import Guitar from "./components/Guitar"
 import Header from "./components/Header"
+import {db} from "./data/db";
+
 function App() {
 
-  const [auth, setAuth] = useState(false)
-
-
-  useEffect(()=>{
-    console.log("componente listo")
-  }, [auth])
-
-  //state
+  const [data, setData] = useState(db)
   
-setTimeout(() => {
-  setAuth(true)
-}, 3000);
-
-
   return (
     <>
       <Header />
@@ -24,11 +14,15 @@ setTimeout(() => {
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
         <div className="row mt-5">
-          <Guitar />
-          <Guitar />
-          <Guitar />
-          <Guitar />
-          <Guitar />  
+          {data.map((guitar) => (
+            <Guitar 
+              key = {guitar.id}
+              guitar = {guitar}
+            /> // Pass id and price props
+          ))}
+
+         
+           
         </div>
       </main>
 
