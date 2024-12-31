@@ -2,6 +2,9 @@ import {useMemo} from 'react'
 
 export default function Header({cart, removeFromCart, increaseQuantity, decreaseQuantity, clearCart}){
 
+  //ver items en el carrito
+  const cartCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+
   //state derivado
   const isEmpty = useMemo(() => cart.length === 0, [cart])
   const cartTotal = useMemo(() => cart.reduce ((total, item)=> total + (item.quantity*item.price),0),[cart])
@@ -21,6 +24,10 @@ export default function Header({cart, removeFromCart, increaseQuantity, decrease
             </div>
             <nav className="col-md-6 a mt-5 d-flex align-items-start justify-content-end">
               <div className="carrito">
+                <div className="cart-badge">
+                  {cartCount > 0 && <span>{cartCount}</span>}
+                  <i className="fas fa-shopping-cart"></i>
+                </div>
                 <img
                   className="img-fluid"
                   src="/img/carrito.png"
